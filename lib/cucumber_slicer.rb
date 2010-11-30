@@ -10,11 +10,10 @@ if RAILS_ENV == "cucumber"
     require "v0.8.5/rb_support/rb_language"
     require "v0.8.5/rb_support/rb_step_definition"
     require "v0.8.5/ast/tree_walker"
-  elsif Gem.loaded_specs["cucumber"].version == Gem::Version.new("0.9.4")
-    require "v0.9.2/runtime"
-    require "v0.8.5/cli/configuration"
-    require "v0.8.5/rb_support/rb_language"
+  elsif Gem.loaded_specs["cucumber"].version >= Gem::Version.new("0.9.0")
+    require "v0.9.4/runtime"
+    require "v0.9.4/rb_support/rb_language"
     require "v0.8.5/rb_support/rb_step_definition"
-    require "v0.8.5/ast/tree_walker"
+    require "v0.9.4/ast/tree_walker"
   end
 end

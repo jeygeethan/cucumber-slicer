@@ -9,6 +9,7 @@ module Cucumber
       end
       
       def load_code_file(code_file)
+        puts "Loading file : " + code_file
         require File.expand_path(code_file) # This will cause self.add_step_definition, self.add_hook, and self.add_transform to be called from RbDsl
       end
       

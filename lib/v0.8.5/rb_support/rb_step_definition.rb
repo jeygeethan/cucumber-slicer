@@ -2,7 +2,7 @@ module Cucumber
   module RbSupport
     class RbStepDefinition
       def is_feature_specific?
-        file =~ /specific_feature_step_definitions/
+        file =~ /#{CUCUMBER_FEATURE_SPECIFIC_STEPS_DIRECTORY}/
       end
     end
   end

@@ -7,11 +7,7 @@ module Cucumber
         feature_file_name = feature_file_name[feature_file_name.index("/")+1..-9]
         path_to_feature_specific_definition_file = "#{CUCUMBER_FEATURE_SPECIFIC_STEPS_DIRECTORY}/#{feature_file_name}_steps.rb"
         
-        @step_mother.remove_all_feature_specific_step_definitions
-        
-        if File::exists?(path_to_feature_specific_definition_file)
-          @step_mother.load_code_file_specific_for_feature(path_to_feature_specific_definition_file)
-        end
+        @step_mother.support_code.remove_all_feature_specific_step_definitions_except_for(path_to_feature_specific_definition_file)
         
         broadcast(feature) do
           feature.accept(self)
