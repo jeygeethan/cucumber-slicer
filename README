@@ -1,13 +1,34 @@
 Cucumber-slicer
 ===============
 
-Introduction goes here.
+This is a rails plugin that can be used to separate step definition files for each feature. 
+
+By default, cucumber loads all *.rb files for executing the steps. This plugin changes this default behavior and the files inside "RAILS_ROOT/features/step_definitions/specific_feature_step_definitions" are loaded only if the name matches with the feature file being run.
+
+For example:
+------------
+
+Running user_login.feature would load the file features/step_definitions/specific_feature_step_definitions/user_login_steps.feature
+
+Why is this necessary?
+======================
+
+Sometimes it becomes necessary for steps to have same name but should behave differently with the context of from which feature it is being run.
+
+Also, this removes the need to uniquely name steps based on slightly different implementations.
+
+Example:
+--------
+
+For the following step,
+
+    When password is changed to "something"
+
+this step can be called either from user_settings.feature or admin_settings.feature. Correspondingly either,
+
+    features/step_definitions/specific_feature_step_definitions/user_settings_steps.rb
+    features/step_definitions/specific_feature_step_definitions/admin_settings_steps.rb
+
+will be loaded and the file will contain the different implementations of step definition.
 
 
-Example
-=======
-
-Example goes here.
-
-
-Copyright (c) 2010 gten, released under the MIT license
