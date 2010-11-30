@@ -2,17 +2,6 @@ module Cucumber
   module RbSupport
     class RbLanguage
       
-      def register_rb_step_definition(regexp, proc)
-        if @feature_specific_code_file_loading == true
-          step_definition = RbStepDefinition.new(self, regexp, proc, true)
-        else
-          step_definition = RbStepDefinition.new(self, regexp, proc)
-        end
-        
-        @step_definitions << step_definition
-        step_definition
-      end
-      
       def remove_all_feature_specific_step_definitions
         @step_definitions.reject! do |step|
           step.is_feature_specific?

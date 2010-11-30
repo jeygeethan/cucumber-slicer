@@ -11,5 +11,8 @@ module Cucumber
       programming_language.remove_all_feature_specific_step_definitions
     end
     
+    def support_code
+      self
+    end
   end
 end

@@ -1,0 +1,19 @@
+module Cucumber
+  class Runtime
+    class SupportCode
+      def load_code_file_specific_for_feature(step_def_file)
+        programming_language = programming_language_for(step_def_file)
+        programming_language.load_code_file_specific_for_feature(step_def_file)
+      end
+      
+      def remove_all_feature_specific_step_definitions
+        programming_language = programming_language_for("test.rb")
+        programming_language.remove_all_feature_specific_step_definitions
+      end
+    end
+    
+    def support_code
+      @support_code
+    end
+  end
+end
