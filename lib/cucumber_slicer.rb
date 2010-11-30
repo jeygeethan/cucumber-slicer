@@ -1,9 +1,6 @@
 CUCUMBER_FEATURE_SPECIFIC_STEPS_DIRECTORY = "features/step_definitions/specific_feature_step_definitions"
 
 if RAILS_ENV == "cucumber"
-  puts "Loading cucumber-slicer"
-  puts ""
-  
   if Gem.loaded_specs["cucumber"].version == Gem::Version.new("0.8.5")
     require "v0.8.5/step_mother"
     require "v0.8.5/cli/configuration"
