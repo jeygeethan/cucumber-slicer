@@ -27,6 +27,7 @@ For the following step,
 this step can be called either from user_settings.feature or admin_settings.feature. Correspondingly either,
 
     features/step_definitions/specific_feature_step_definitions/user_settings_steps.rb
+        OR
     features/step_definitions/specific_feature_step_definitions/admin_settings_steps.rb
 
 will be loaded and the file will contain the different implementations of step definition.
